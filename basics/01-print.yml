@@ -6,7 +6,7 @@
         msg: "Helloooooz"
 
     - name: Print Bye
-      ansible.builtin.debug:
+      debug:
       msg: "ByeBye"
 
 
