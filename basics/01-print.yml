@@ -6,8 +6,8 @@
         msg: "Helloooooz"
 
     - name: Print Bye
-      debug:
-        msg: "ByeBye"
+      ansible.builtin.debug:
+      msg: "ByeBye"
 
 
 ## obervstions
