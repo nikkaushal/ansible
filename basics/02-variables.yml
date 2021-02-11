@@ -28,9 +28,9 @@
   vars:
     URL: vars.sample.com
   vars_prompt:
-    -name: COURSE_NAME
-     prompt: Enter tne course name
-     private: no
+    - name: COURSE_NAME
+      prompt: Enter tne course name
+      private: no
   tasks:
     - name: Print variables
       ansible.builtin.debug:
