@@ -13,7 +13,7 @@
 
     - name: Print local variable
       ansible.builtin.debug:
-        - msg: Hello {{ URL }}
+        msg: Hello {{ URL }}
       vars:
         URL: tasks.google.com
 #observation:
