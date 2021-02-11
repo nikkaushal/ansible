@@ -35,6 +35,6 @@
     - name: Print variables
       ansible.builtin.debug:
         msg: HelloGGG {{ URL }}
-    -name: Print course
-     ansible.builtin.debug:
-       msg: Welcome to {{ COURSE_NAME }} Training
+    - name: Print course
+      ansible.builtin.debug:
+        msg: Welcome to {{ COURSE_NAME }} Training
