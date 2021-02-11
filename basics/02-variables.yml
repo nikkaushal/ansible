@@ -20,14 +20,21 @@
 #1. vars declared on play level can be accessed by any task in the play.
 #2. One play variables cannot be accessed by another play by default.
 #3. local variables are having higher precedence that global variables.
-
+#some
 - name: Demo on variables from files
   hosts: all
   vars_files:
     - vars.yml
   vars:
     URL: vars.sample.com
+  vars_prompt:
+    -name: COURSE_NAME
+     prompt: Enter tne course name
+     private: no
   tasks:
     - name: Print variables
       ansible.builtin.debug:
         msg: HelloGGG {{ URL }}
+    -name: Print course
+     ansible.builtin.debug:
+       msg: Welcome to {{ COURSE_NAME }} Training
