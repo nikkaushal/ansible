@@ -21,12 +21,13 @@
 #2. One play variables cannot be accessed by another play by default.
 #3. local variables are having higher precedence that global variables.
 
-    - name: Demo on variables from files
-      hosts: all
-      vars_files:
-        - vars.yml
-      vars:
-        URL: vars.sample.com
-      tasks: Print varibales
+- name: Demo on variables from files
+  hosts: all
+  vars_files:
+    - vars.yml
+  vars:
+    URL: vars.sample.com
+  tasks:
+    - name: Print variables
       ansible.builtin.debug:
         msg: HelloGGG {{ URL }}
