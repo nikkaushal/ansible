@@ -20,7 +20,8 @@
 #1. vars declared on play level can be accessed by any task in the play.
 #2. One play variables cannot be accessed by another play by default.
 #3. local variables are having higher precedence that global variables.
-#some
+#some times we need t load variables from a file
+# Command line variables wit - e option have highest precedence
 - name: Demo on variables from files
   hosts: all
   vars_files:
