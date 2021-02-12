@@ -21,7 +21,10 @@
 #2. One play variables cannot be accessed by another play by default.
 #3. local variables are having higher precedence that global variables.
 #some times we need t load variables from a file
-# Command line variables wit - e option have highest precedence
+#vars_files are having higher precedence than vars
+# Command line variables with - e option have highest precedence
+
+
 - name: Demo on variables from files
   hosts: all
   vars_files:
@@ -39,3 +42,5 @@
     - name: Print course
       ansible.builtin.debug:
         msg: Welcome to {{ COURSE_NAME }} Training
+
+#Things to explore- we can define variables in the inventory file also, explore this option
