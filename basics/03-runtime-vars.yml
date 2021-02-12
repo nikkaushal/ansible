@@ -8,3 +8,13 @@
    - name: print OUT variable
      ansible.builtin.debug:
        msg: "{{ OUT.stdout }}"
+
+
+# sometimes need to store output in a standard variable and use accross the play, such cases we store the variable in a standard name
+   - name: declare variable
+     ansible.builtin.set_fact:
+       UNAME: "{{ OUT.stdout }}"
+
+   - name: Print UNAME
+     ansible.builtin.debug:
+       msg: "{{ UNAME }}"
