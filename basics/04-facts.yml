@@ -1,11 +1,5 @@
 - name: demo on facts
   hosts: all
-  tasks:
-    - name: Print the hostname
-      ansible.builtin.debug:
-        msg: "{{ ansible_fqdn }}"
-- name: demo on facts
-  hosts: all
   gather_facts: false
   tasks:
     - name: Print the hostname
