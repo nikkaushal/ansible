@@ -18,3 +18,4 @@
    - name: Print UNAME
      ansible.builtin.debug:
        msg: "{{ UNAME }}"
+
