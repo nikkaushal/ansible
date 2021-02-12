@@ -1,6 +1,6 @@
--name: demo runtime declaring variables
- hosts: all
- tasks:
+- name: demo runtime declaring variables
+  hosts: all
+  tasks:
    - name: run a shell command
     ansible.builtin.shell:
       shell: uptime
