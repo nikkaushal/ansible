@@ -2,5 +2,5 @@
   hosts: all
   tasks:
     - name: Print the hostname
-      ansible.buitlin.debug:
+      ansible.builtin.debug:
         msg: "{{ ansible_hostname }}"
