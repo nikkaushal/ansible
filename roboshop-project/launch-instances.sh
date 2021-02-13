@@ -1,4 +1,5 @@
 #!bin/bash
+
 if [ -z "$2" ]; then
   case $1 in
     launch)
@@ -36,5 +37,5 @@ else
      done
     ;;
   esac
-fi 
+fi
 
