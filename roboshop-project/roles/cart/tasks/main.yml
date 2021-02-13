@@ -1,3 +1,7 @@
-- name: component name
-  ansible.builtin.debug:
-    msg: "cart"
+- name: install node js packages
+  ansible.builtin.yum:
+    name:
+      - nodejs
+      - make
+      - gcc-c++
+    state: present
