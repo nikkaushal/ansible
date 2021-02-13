@@ -9,3 +9,19 @@
       import_role:
         name: catalogue
       when: component == "catalogue"
+    - name: load user role
+      import_role:
+        name: user
+      when: component == "user"
+    - name: load shipping role
+      import_role:
+        name: shipping
+      when: component == "shipping"
+    - name: load payment role
+      import_role:
+        name: payment
+      when: component == "payment"
+    - name: load frontend role
+      import_role:
+        name: frontend
+      when: component == "frontend"
