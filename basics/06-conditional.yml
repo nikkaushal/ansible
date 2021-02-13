@@ -1,0 +1,14 @@
+- name: demo on conditions
+  hosts: all
+  tasks:
+    - name: print OS name
+      ansible.builtin.debug:
+        msg: "OS HOSTNAME NAME = {{ansible_fqdn}}"
+      when: ansible_os_family == "RedHat"
+    - name: print OS name
+      ansible.builtin.debug:
+        msg: "OS HOSTNAME NAME = {{ansible_fqdn}}"
+      when: ansible_os_family == "Ubuntu"
+
+
+#ansible -i inventory all -m setup (this commands collects al the information about the nodes)
