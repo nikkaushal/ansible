@@ -1,0 +1,3 @@
+- name: component name
+  ansible.builtin.debug:
+    msg: "catalogue"

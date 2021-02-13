@@ -1,0 +1,9 @@
+- name: setup roboshop project
+  hosts: all
+  roles:
+    - name: load cart role
+      import_role:
+        - name: cart
+    - name: load catalogue role
+      import_role:
+        - name: catalogue
