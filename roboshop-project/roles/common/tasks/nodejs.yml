@@ -11,3 +11,7 @@
 
 - name: Download artifacts
   ansible.builtin.include_tasks: download-with-curl.yml
+- name: download nodejs (npm) dependencies
+  community.general.npm:
+    path: /home/roboshop/{{COMPONENT}}
+    state: latest

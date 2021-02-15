@@ -11,10 +11,7 @@
     src: "{{ARTIFACT_ZIP_URL}}"
     dest:  /home/roboshop/{{COMPONENT}}
     remote_src: yes
-- name: download nodejs (npm) dependencies
-  community.general.npm:
-    path: /home/roboshop/{{COMPONENT}}
-    state: latest
+
 
 #  $ cd /home/roboshop
 #  $ mkdir cart
