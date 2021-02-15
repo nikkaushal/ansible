@@ -5,3 +5,7 @@
       - make
       - gcc-c++
     state: present
+-name: create application user
+ user:
+   ansible.builtin.user: roboshop
+
