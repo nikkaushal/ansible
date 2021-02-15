@@ -10,4 +10,4 @@
     name: roboshop
 
 - name: Download artifacts
-  ansible.builtin.include_tasks: download-with-curl.yaml
+  ansible.builtin.include_tasks: download-with-curl.yml
