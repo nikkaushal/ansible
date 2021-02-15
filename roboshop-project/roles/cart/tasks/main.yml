@@ -1,10 +1,5 @@
-- name: install node js packages
-  ansible.builtin.yum:
-    name:
-      - nodejs
-      - make
-      - gcc-c++
-    state: present
-- name: create application user
-  ansible.builtin.user:
-    name: roboshop
+- name: include common role
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: nodejs
+
