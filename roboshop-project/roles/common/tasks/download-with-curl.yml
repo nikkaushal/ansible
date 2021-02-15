@@ -1,6 +1,3 @@
-- name: download the artifacts zip file
-  shell: curl -s -L -o /tmp/{{COMPONENT}}.zip "{{ARTIFACT_ZIP_URL}}"
-
 - name: delete {{COMPONENT}} directory
   ansible.builtin.file:
     path: /home/roboshop/{{COMPONENT}}
@@ -9,13 +6,15 @@
   ansible.builtin.file:
     path: /home/roboshop/{{COMPONENT}}
     state: directory
-- name: unzip/unarchive {{COMPONENT}} on a remote machine
+- name: download and unzip/unarchive {{COMPONENT}} on a remote machine
   ansible.builtin.unarchive:
     src: "{{ARTIFACT_ZIP_URL}}"
     dest:  /home/roboshop/{{COMPONENT}}
     remote_src: yes
-
-
+- name: download nodejs (npm) dependencies
+  community.general.npm:
+    path: /home/roboshop/{{COMPONENT}}
+    state: latest
 
 #  $ cd /home/roboshop
 #  $ mkdir cart
