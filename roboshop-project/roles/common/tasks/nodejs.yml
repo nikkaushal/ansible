@@ -9,3 +9,5 @@
   ansible.builtin.user:
     name: roboshop
 
+- name: Download artifacts
+  ansible.builtin.include_tasks: download-with-curl.yaml
