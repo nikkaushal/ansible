@@ -6,11 +6,13 @@
   ansible.builtin.file:
     path: /home/roboshop/{{COMPONENT}}
     state: directory
+  become_user: roboshop
 - name: download and unzip/unarchive {{COMPONENT}} on a remote machine
   ansible.builtin.unarchive:
     src: "{{ARTIFACT_ZIP_URL}}"
     dest:  /home/roboshop/{{COMPONENT}}
     remote_src: yes
+  become_user: roboshop
 
 
 #  $ cd /home/roboshop
