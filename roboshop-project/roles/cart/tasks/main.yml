@@ -6,6 +6,5 @@
       - gcc-c++
     state: present
 - name: create application user
- user:
-   ansible.builtin.user: roboshop
-
+  ansible.builtin.user:
+    name: roboshop
