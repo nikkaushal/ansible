@@ -9,10 +9,10 @@
       import_role:
         name: cart
       when: component == "cart"
-#    - name: load catalogue role
-#      import_role:
-#        name: catalogue
-#      when: component == "catalogue"
+    - name: load catalogue role
+      import_role:
+        name: catalogue
+      when: component == "catalogue"
 #    - name: load user role
 #      import_role:
 #        name: user
