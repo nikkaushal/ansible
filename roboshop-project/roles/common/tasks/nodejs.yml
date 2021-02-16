@@ -16,3 +16,4 @@
     path: /home/roboshop/{{COMPONENT}}
     state: latest
   become_user: roboshop
+- name:
