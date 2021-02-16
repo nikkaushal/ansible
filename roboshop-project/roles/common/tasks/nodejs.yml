@@ -16,4 +16,5 @@
     path: /home/roboshop/{{COMPONENT}}
     state: latest
   become_user: roboshop
-- name:
+- name: setup systemD service
+  ansible.builtin.include_tasks: systemd-setup.yml
