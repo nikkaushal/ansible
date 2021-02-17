@@ -1,0 +1,19 @@
+- name: install node js packages
+  ansible.builtin.yum:
+    name: maven
+    state: present
+- name: create application user
+  ansible.builtin.user:
+    name: roboshop
+
+- name: Download artifacts
+  ansible.builtin.include_tasks: download-with-curl.yml
+
+- name: compile and build package
+  ansible.builtin.shell:
+    chdir: /home/roboshop/{{COMPONENT}}
+    cmd: mvn clean package
+  become_user: roboshop
+
+- name: setup systemD service
+  ansible.builtin.include_tasks: systemd-setup.yml
