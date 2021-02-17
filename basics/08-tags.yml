@@ -1,5 +1,5 @@
 - name: demo on tags
-  hosts: all
+  hosts: localhost
   tasks:
     - name: DevOps Course
       ansible.builtin.debug:
