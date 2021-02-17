@@ -1,0 +1,11 @@
+- name: demo on tags
+  hosts: all
+  tasks:
+    - name: DevOps Course
+      ansible.builtin.debug:
+        msg: :welcome to devops"
+      when: COURSE_NAME == "DevOps"
+    - name: AWS course
+      ansible.builtin.debug:
+        msg: "Welcome to AWS"
+      when: COURSE_NAME == "AWS"
