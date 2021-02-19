@@ -10,4 +10,4 @@
       ansible.builtin.debug:
         msg: "Welcome to AWS"
       tags:
-        - AWs
+        - AWS
