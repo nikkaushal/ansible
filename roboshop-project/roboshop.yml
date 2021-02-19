@@ -29,10 +29,12 @@
       when: component == "shipping"
       tags:
         - shipping
-#    - name: load payment role
-#      import_role:
-#        name: payment
-#      when: component == "payment"
+    - name: load payment role
+      import_role:
+        name: payment
+      when: component == "payment"
+      tags:
+        - payment
 #    - name: load frontend role
 #      import_role:
 #        name: frontend
