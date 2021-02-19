@@ -20,10 +20,5 @@
     state: latest
   become_user: roboshop
 
-- name: copy {{COMPONENT}} jar file
-  ansible.builtin.copy:
-    src: /home/roboshop/target/shipping-1.0.jar
-    dest: /home/roboshop/target/shipping.jar
-    remote_src: yes
 - name: setup systemD service
   ansible.builtin.include_tasks: systemd-setup.yml
