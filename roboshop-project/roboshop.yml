@@ -9,18 +9,26 @@
       import_role:
         name: cart
       when: component == "cart"
+      tags:
+        - cart
     - name: load catalogue role
       import_role:
         name: catalogue
       when: component == "catalogue"
+      tags:
+        - catalogue
     - name: load user role
       import_role:
         name: user
       when: component == "user"
-#    - name: load shipping role
-#      import_role:
-#        name: shipping
-#      when: component == "shipping"
+      tags:
+        - user
+    - name: load shipping role
+      import_role:
+        name: shipping
+      when: component == "shipping"
+      tags:
+        - shipping
 #    - name: load payment role
 #      import_role:
 #        name: payment
