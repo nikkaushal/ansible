@@ -1,0 +1,5 @@
+- name: setup hostname
+  shell: set-hostname {{COMPONENT}}
+
+- name: disbale auto shutdown
+  shell: disable-auto-shutdown

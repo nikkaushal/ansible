@@ -1,3 +1,5 @@
+- name: setup OS Prerquisites
+  ansible.builtin.include_tasks: os.yml
 - name: install maven packages
   ansible.builtin.yum:
     name: maven
