@@ -8,6 +8,7 @@
       - gcc
       - python3-devel
     state: present
+    
 - name: create application user
   ansible.builtin.user:
     name: roboshop
@@ -15,9 +16,7 @@
 - name: Download artifacts
   ansible.builtin.include_tasks: download-with-curl.yml
 
-- name: install python packages
-
-- name: Install specified python requirements
+- name: Install python packages
   ansible.builtin.pip:
     requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
 
