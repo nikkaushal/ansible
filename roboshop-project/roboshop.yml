@@ -35,7 +35,9 @@
       when: component == "payment"
       tags:
         - payment
-#    - name: load frontend role
-#      import_role:
-#        name: frontend
-#      when: component == "frontend"
+    - name: load frontend role
+      import_role:
+        name: frontend
+      when: component == "frontend"
+      tags:
+        - frontend

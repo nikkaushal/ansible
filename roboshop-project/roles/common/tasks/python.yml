@@ -16,7 +16,7 @@
 - name: Download artifacts
   ansible.builtin.include_tasks: download-with-curl.yml
 
-- name: Install python packages
+- name: Install python packages (python install package)
   ansible.builtin.pip:
     requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
     executable: pip-3

@@ -1,0 +1,29 @@
+- name: Install nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: present
+
+- name: delete old content
+  ansible.builtin.file:
+    path: /usr/shre/nginx
+    state: absent
+
+- name: create content directory
+  ansible.builtin.file:
+    path: /usr/shre/nginx
+    state: directory
+
+- name: download and unzip/unarchive {{COMPONENT}} on a remote machine
+  ansible.builtin.unarchive:
+    src: "{{ARTIFACT_ZIP_URL}}"
+    dest:  /usr/share/nginx
+    remote_src: yes
+
+- name: rename content directory
+  ansible.builtin.shell: mv /usr/share/nginx/static /usr/share/nginx/html
+
+- name: start nginx
+  ansible.builtin.systemd:
+    name: nginx
+    enabled: yes
+    state: restarted
