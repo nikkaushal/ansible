@@ -47,3 +47,9 @@
       when: component == "mongo"
       tags:
         - mongo
+    - name: load redis role
+      import_role:
+        name: redis
+      when: component == "redis"
+      tags:
+        - redis
