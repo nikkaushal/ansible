@@ -1,0 +1,29 @@
+- name: include common role for OS prereqs
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: os
+
+
+- name:  install repo files
+  ansible.builtin.yum:
+    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: present
+
+- name:  install redis
+  ansible.builtin.yum:
+    name: redis
+    state: present
+    enablerepo: remi
+
+- name: update redis configuration file
+  ansible.builtin.replace:
+    path: /etc/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: start redis
+  ansible.builtin.systemd:
+    name: redis
+    state: started
+    enabled: yes
+
