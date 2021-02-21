@@ -18,3 +18,19 @@
     path: /etc/mongod.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
+
+- name: start mongodb
+  ansible.builtin.systemd:
+    name: mongod
+    state: started
+    enabled: yes
+
+- name: download and unzip/unarchive {{COMPONENT}} on a remote machine
+  ansible.builtin.unarchive:
+    src: "{{ARTIFACT_ZIP_URL}}"
+    dest:  /tmp
+    remote_src: yes
+
+- name: load schema
+  ansible.builtin.shell: mongo < catalogue.js ; mongo < users.js
+  
