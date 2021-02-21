@@ -1,3 +1,8 @@
+- name: include common role for OS prereqs
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: os
+
 - name: copy mongo repo file
   ansible.builtin.template:
     src: mongo.repo
@@ -8,4 +13,8 @@
     name: mongodb-org
     state: present
 
-
+- name: update mongodb configuration file
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '12.0.0.1'
+    replace: '0.0.0.0'

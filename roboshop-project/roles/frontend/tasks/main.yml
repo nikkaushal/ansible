@@ -1,3 +1,8 @@
+- name: include common role for OS prereqs
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: os
+
 - name: Install nginx
   ansible.builtin.yum:
     name: nginx
