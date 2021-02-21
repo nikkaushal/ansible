@@ -5,12 +5,12 @@
 
 - name: delete old content
   ansible.builtin.file:
-    path: /usr/shre/nginx
+    path: /usr/share/nginx
     state: absent
 
 - name: create content directory
   ansible.builtin.file:
-    path: /usr/shre/nginx
+    path: /usr/share/nginx
     state: directory
 
 - name: download and unzip/unarchive {{COMPONENT}} on a remote machine
