@@ -32,5 +32,5 @@
     remote_src: yes
 
 - name: load schema
-  ansible.builtin.shell: mongo < catalogue.js ; mongo < users.js
+  ansible.builtin.shell: mongo </tmp/catalogue.js ; mongo </tmp/users.js
   
