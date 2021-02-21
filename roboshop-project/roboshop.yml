@@ -41,3 +41,9 @@
       when: component == "frontend"
       tags:
         - frontend
+    - name: load MongDB role
+      import_role:
+        name: mongo
+      when: component == "mongo"
+      tags:
+        - mongo
