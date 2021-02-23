@@ -59,3 +59,9 @@
       when: component == "mysql"
       tags:
         - mysql
+    - name: load rabbitmq role
+      import_role:
+        name: rabbitmq
+      when: component == "rabbitmq"
+      tags:
+        - rabbitmq
