@@ -24,9 +24,9 @@
     state: started
     enabled: yes
 
-- name: grab the defaul root password
-  ansible.builtin.shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
-  register: DEFAULT_PASS
-
-- name: set the new password
-  ansible.builtin.shell: echo -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{MYSQL_PASS}}':" | mysql --connect-expired-password -u root -p '{{DEFAULT_PASS.stdout}}'
+#- name: grab the defaul root password
+#  ansible.builtin.shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
+#  register: DEFAULT_PASS
+#
+#- name: set the new password
+#  ansible.builtin.shell: echo -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{MYSQL_PASS}}':" | mysql --connect-expired-password -u root -p'{{DEFAULT_PASS.stdout}}'
