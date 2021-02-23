@@ -1,0 +1,21 @@
+- name: copy my sql repo file
+  ansible.builtin.template:
+    src: mysql.repo
+    destination: /etc/mysql/mysql.repo
+
+- name: remove mariadb libs
+  ansible.builtin.yum:
+    name: mariadb-libs
+    state: absent
+
+- name: install mysql
+  ansible.builtin.yum:
+    name: mysql-community-server
+    state: present
+
+- name: start mysql
+  ansible.builtin.systemd:
+    name: mysql
+    state: started
+    enabled: yes
+
