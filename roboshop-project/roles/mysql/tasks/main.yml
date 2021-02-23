@@ -1,3 +1,8 @@
+- name: include common role for OS prereqs
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: os
+
 - name: copy my sql repo file
   ansible.builtin.template:
     src: mysql.repo
@@ -18,4 +23,9 @@
     name: mysqld
     state: started
     enabled: yes
+- name: grab the defaul root password
+  ansible.builtin.shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
+  register: DEFAULT_PASS
 
+- name: set the new password
+  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{MYSQL_PASS}}':" | mysql -u root -p'{{DEFAULT_PASS.stdout}}'
