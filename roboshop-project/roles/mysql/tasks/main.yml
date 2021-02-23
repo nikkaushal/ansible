@@ -24,9 +24,10 @@
     state: started
     enabled: yes
 
-- name: checkt the MySQL connecitivity using standard password
+- name: check the MySQL connecitivity using standard password
   ansible.builtin.shell: echo "show databases;" | mysql -u root -p'{{MYSQL_PASS}}'
   register: out
+  ignore_errors: yes
 
 - name: grab the default root password
   ansible.builtin.shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
