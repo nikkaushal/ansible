@@ -15,7 +15,7 @@
 
 - name: start mysql
   ansible.builtin.systemd:
-    name: mysql
+    name: mysqld
     state: started
     enabled: yes
 
