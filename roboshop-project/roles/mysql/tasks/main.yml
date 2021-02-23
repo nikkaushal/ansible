@@ -28,10 +28,6 @@
   ansible.builtin.shell: echo "show databases;" | mysql -u root -p'{{MYSQL_PASS}}'
   register: out
 
-- name: print
-  ansible.builtin.debug:
-    msg: "{{out}}"
-
 - name: grab the default root password
   ansible.builtin.shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
   register: DEFAULT_PASS
@@ -40,3 +36,13 @@
 - name: set the new password
   ansible.builtin.shell: echo -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{MYSQL_PASS}}';\nuninstall plugin validate_password;" | mysql --connect-expired-password -u root -p'{{DEFAULT_PASS.stdout}}'
   when: out.rc != 0
+
+- name: download and unzip/unarchive {{COMPONENT}} on a remote machine
+  ansible.builtin.unarchive:
+    src: "{{ARTIFACT_ZIP_URL}}"
+    dest:  /tmp
+    remote_src: yes
+
+- name: load schema
+  ansible.builtin.shell: mysql -u root -p'{{MYSQL_PASS}}' </tmp/shipping.sql
+
