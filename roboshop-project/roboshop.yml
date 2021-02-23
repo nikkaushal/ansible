@@ -55,7 +55,7 @@
         - redis
     - name: load mysql role
         import_role:
-          name:  mysql
+          name: mysql
         when: component == "mysql"
         tags:
           - mysql
