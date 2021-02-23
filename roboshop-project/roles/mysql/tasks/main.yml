@@ -28,4 +28,4 @@
   register: DEFAULT_PASS
 
 - name: set the new password
-  ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{MYSQL_PASS}}':" | mysql -u root -p'{{DEFAULT_PASS.stdout}}'
+  ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{MYSQL_PASS}}':" | mysql --connect-expired-password -u root -p'{{DEFAULT_PASS.stdout}}'
