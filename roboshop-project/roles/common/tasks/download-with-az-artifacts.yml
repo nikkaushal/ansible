@@ -1,0 +1,33 @@
+- name: copy azure repos file
+  ansible.builtin.template:
+    src: az.repo
+    dest: /etc/yum.repos.d/az.repo
+
+- name: install az cli
+  ansible.builtin.yum:
+    name: azure-cli
+    state: present
+
+- name: install azure devops extensions
+  ansible.builtin.shell: az extension add --name azure-devops
+  become_user: roboshop
+
+- name: set up PAT for az cli
+  shell: echo {{PAT}} | az devops login
+  become_user: roboshop
+
+- name: delete {{COMPONENT}} directory
+  ansible.builtin.file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: absent
+
+- name: create {{COMPONENT}} directory
+  ansible.builtin.file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: directory
+  become_user: roboshop
+
+- name: download artifacts
+  ansible.builtin.shell: az artifacts universal download --organization https://dev.azure.com/nikkaushal0032/ --project="devops-practise" --scope project --feed devops0032 --name "{{component}}" --version "{{APP_ARTIFACT_VERSION}}" --path .
+  become_user: roboshop
+

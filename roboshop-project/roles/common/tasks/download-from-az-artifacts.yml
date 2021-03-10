@@ -1,0 +1,37 @@
+- name: delete {{COMPONENT}} directory
+  ansible.builtin.file:
+    path: "{{ARTIFACT_PATH}}"
+    state: absent
+
+- name: create {{COMPONENT}} directory
+  ansible.builtin.file:
+    path: "{{ARTIFACT_PATH}}"
+    state: directory
+  become_user: "{{BUSER}}"
+
+## check of AZ CLI is not there then follow remaining steps
+
+- name: check az cli
+  shell: which az
+  register: out
+  ignore_errors: yes
+
+
+- name: install  az cli
+  when: out.rc != 0
+  block:
+    - name: copy azure repo file
+      copy:
+        src: az.repo
+        dest: /etc/yum.repos.d/az.repo
+    - name: install az cli
+      yum:
+        name: azure-cli
+        state: present
+    - name: install az devops extension
+      shell: az extension add --name azure-devops
+
+- name: configure PAT in az cli
+  shell: echo {{PAT}} | az devops login
+
+- name:

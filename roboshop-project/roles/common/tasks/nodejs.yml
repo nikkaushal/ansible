@@ -13,7 +13,8 @@
     name: roboshop
 
 - name: Download artifacts
-  ansible.builtin.include_tasks: download-with-curl.yml
+  ansible.builtin.include_tasks: download-with-az-artifacts.yml
+
 - name: download nodejs (npm) dependencies
   community.general.npm:
     path: /home/roboshop/{{COMPONENT}}

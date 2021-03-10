@@ -2,11 +2,13 @@
   ansible.builtin.file:
     path: /home/roboshop/{{COMPONENT}}
     state: absent
+
 - name: create {{COMPONENT}} directory
   ansible.builtin.file:
     path: /home/roboshop/{{COMPONENT}}
     state: directory
   become_user: roboshop
+
 - name: download and unzip/unarchive {{COMPONENT}} on a remote machine
   ansible.builtin.unarchive:
     src: "{{ARTIFACT_ZIP_URL}}"
