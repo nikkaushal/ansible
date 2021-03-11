@@ -38,7 +38,7 @@
     name: nginx
     enabled: yes
     state: started
-    
+
 #- name: include common role for OS prereqs
 #  ansible.builtin.include_role:
 #    name: common
