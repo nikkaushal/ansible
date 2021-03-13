@@ -2,7 +2,7 @@
   ansible.builtin.include_tasks: os.yml
 
 - name: install python packages
-  ansible.builtin.yum:
+  yum:
     name:
       - python36
       - gcc
