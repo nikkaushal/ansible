@@ -13,7 +13,7 @@
     name: roboshop
 
 - name: Download artifacts
-  ansible.builtin.include_tasks: download-with-az-artifacts.yml
+  ansible.builtin.include_tasks: download-from-az-artifacts.yml
 
 - name: download nodejs (npm) dependencies
   ansible.builtin.shell: npm install
