@@ -14,7 +14,7 @@
     name: roboshop
 
 - name: Download artifacts
-  ansible.builtin.include_tasks: download-from-az-artifacts.yml
+  ansible.builtin.include_tasks: download-with-az-artifacts.yml
 
 - name: Install python packages (python install package)
   ansible.builtin.pip:

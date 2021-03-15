@@ -9,7 +9,7 @@
     name: roboshop
 
 - name: Download artifacts
-  ansible.builtin.include_tasks: download-from-az-artifacts.yml
+  ansible.builtin.include_tasks: download-with-az-artifacts.yml
 
 - name: compile and build package
   ansible.builtin.shell:
