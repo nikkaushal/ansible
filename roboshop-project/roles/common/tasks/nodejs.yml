@@ -16,7 +16,7 @@
   ansible.builtin.include_tasks: download-with-az-artifacts.yml
 
 - name: download nodejs (npm) dependencies
-  ansible.builtin.shell: npm install
+  shell: npm install
   args:
     chdir: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
