@@ -4,7 +4,8 @@
     tasks_from: os
 - name: install erlang
   ansible.builtin.yum:
-    name: https://packages.erlang-solutions.com/erlang/rpm/centos/7/x86_64/esl-erlang_22.2.1-1~centos~7_amd64.rpm
+    name: https://packages.erlang-solutions.com/erlang/rpm/centos/7/x86_64/esl-erlang_22.3-1~centos~7_amd64.rpm
+    # old version https://packages.erlang-solutions.com/erlang/rpm/centos/7/x86_64/esl-erlang_22.2.1-1~centos~7_amd64.rpm
     state: present
 
 - name: set up yum repos
