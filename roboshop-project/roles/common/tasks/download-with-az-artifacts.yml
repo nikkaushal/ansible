@@ -28,7 +28,7 @@
   become_user: roboshop
 
 - name: download artifacts
-  ansible.builtin.shell: az artifacts universal download --organization "https://dev.azure.com/nikkaushal0032/" --project="devops-practise" --scope project --feed "devops0032" --name "{{component}}" --version "{{APP_ARTIFACT_VERSION}}" --path .
+  shell: az artifacts universal download --organization "https://dev.azure.com/nikkaushal0032/" --project="devops-practise" --scope project --feed "devops0032" --name "{{component}}" --version "{{APP_ARTIFACT_VERSION}}" --path .
   # shell: az artifacts universal download --organization "https://dev.azure.com/DevOps-Batches/" --project "f635c088-1047-40e8-8c29-2e3b05a38010" --scope project   --feed "devops53"   --name "{{component}}"   --version "{{APP_ARTIFACT_VERSION}}"   --path .
   become_user: roboshop
 
