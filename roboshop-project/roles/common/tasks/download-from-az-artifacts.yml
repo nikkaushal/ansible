@@ -25,7 +25,7 @@
 
     - name: Install Azure CLI
       yum:
-        name: [ "azure-cli", "libicu" ]
+        name: azure-cli
         state: present
 
     - name: Install Azure DevOps Extention
