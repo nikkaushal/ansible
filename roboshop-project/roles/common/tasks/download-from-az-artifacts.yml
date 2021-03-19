@@ -1,13 +1,13 @@
-- name: Delete {{COMPONENT}} Directory
-  file:
+- name: delete {{COMPONENT}} directory
+  ansible.builtin.file:
     path: "{{ARTIFACT_PATH}}"
     state: absent
 
-- name: Create {{COMPONENT}} Directory
-  file:
+- name: create {{COMPONENT}} directory
+  ansible.builtin.file:
     path: "{{ARTIFACT_PATH}}"
     state: directory
-  become_user: "{{BUSER}}"
+  become_user: roboshop
 
 ## Check if AZ CLI is not there then follow the remaining steps
 - name: Check az cli
@@ -31,13 +31,15 @@
     - name: Install Azure DevOps Extention
       shell: az extension add --name azure-devops
 
-
-- name: Configure PAT in AZ CLI
-  shell: echo {{PAT}} | az devops login
-
-- name: Download Artifacts
-  shell: az artifacts universal download --organization https://dev.azure.com/nikkaushal0032/ --project=devops-practise --scope project --feed devops0032 --name "{{component}}" --version {{APP_ARTIFACT_VERSION}} --path .
-  args:
-    chdir: "{{ARTIFACT_PATH}}"
+- name: fail here
+  shell: false
+  
+#- name: Configure PAT in AZ CLI
+#  shell: echo {{PAT}} | az devops login
+#
+#- name: Download Artifacts
+#  shell: az artifacts universal download --organization https://dev.azure.com/nikkaushal0032/ --project=devops-practise --scope project --feed devops0032 --name "{{component}}" --version {{APP_ARTIFACT_VERSION}} --path .
+#  args:
+#    chdir: "{{ARTIFACT_PATH}}"
 
 

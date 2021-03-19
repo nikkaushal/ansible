@@ -8,6 +8,13 @@
     name: nginx
     state: present
 
+- name: include common role for azure devops artifacts
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download-from-az-artifacts.yml
+    vars:
+      ARTIFACT_PATH: "/usr/share/nginx"
+
 - name: delete old content
   ansible.builtin.file:
     path: /usr/share/nginx
