@@ -12,8 +12,13 @@
   ansible.builtin.user:
     name: roboshop
 
-- name: Download artifacts
-  ansible.builtin.include_tasks: download-with-az-artifacts.yml
+- name: include common role for azure devops artifacts
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download-from-az-artifacts.yml
+  vars:
+    ARTIFACT_PATH: "/home/roboshop/{{COMPONENT}}"
+    BUSER: "roboshop"
 
 - name: download nodejs (npm) dependencies
   shell: npm install
