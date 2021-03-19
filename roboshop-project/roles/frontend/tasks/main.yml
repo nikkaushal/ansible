@@ -14,6 +14,7 @@
     tasks_from: download-from-az-artifacts.yml
   vars:
     ARTIFACT_PATH: "/usr/share/nginx"
+    BUSER: "root"
 
 - name: delete old content
   ansible.builtin.file:

@@ -7,7 +7,7 @@
   ansible.builtin.file:
     path: "{{ARTIFACT_PATH}}"
     state: directory
-  become_user: roboshop
+  become_user: "{{BUSER}}"
 
 ## Check if AZ CLI is not there then follow the remaining steps
 - name: Check az cli
