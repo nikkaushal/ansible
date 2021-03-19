@@ -17,7 +17,7 @@
     BUSER: "roboshop"
 
 - name: compile and build package
-  ansible.builtin.shell:
+  shell:
     chdir: /home/roboshop/{{COMPONENT}}
     cmd: mvn clean package
   become_user: roboshop
