@@ -32,8 +32,8 @@
       shell: az extension add --name azure-devops
 
 - name: fail here
-  shell: false
-  
+  shell: "false"
+
 #- name: Configure PAT in AZ CLI
 #  shell: echo {{PAT}} | az devops login
 #
