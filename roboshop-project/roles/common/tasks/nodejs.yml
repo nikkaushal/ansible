@@ -24,7 +24,7 @@
   shell: npm install
   args:
     chdir: /home/roboshop/{{COMPONENT}}
-  become_user: roboshop
+  become_user: root
 
 - name: setup systemD service
   ansible.builtin.include_tasks: systemd-setup.yml
