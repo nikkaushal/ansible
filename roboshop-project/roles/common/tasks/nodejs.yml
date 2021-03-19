@@ -20,11 +20,11 @@
     ARTIFACT_PATH: "/home/roboshop/{{COMPONENT}}"
     BUSER: "roboshop"
 
-- name: download nodejs (npm) dependencies
-  shell: npm install
-  args:
-    chdir: /home/roboshop/{{COMPONENT}}
-  become_user: root
+#- name: download nodejs (npm) dependencies
+#  shell: npm install
+#  args:
+#    chdir: /home/roboshop/{{COMPONENT}}
+#  become_user: roboshop
 
 - name: setup systemD service
   ansible.builtin.include_tasks: systemd-setup.yml
