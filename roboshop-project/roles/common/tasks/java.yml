@@ -19,7 +19,7 @@
 - name: get POM
   copy:
     src: pom.xml
-    dest: /home/roboshop/{{COMPONENT}}
+    dest: /home/roboshop/{{COMPONENT}}/
 
 - name: compile and build package
   shell:
