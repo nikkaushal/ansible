@@ -16,6 +16,11 @@
     ARTIFACT_PATH: "/home/roboshop/{{COMPONENT}}"
     BUSER: "roboshop"
 
+- name: get POM
+  copy:
+    src: pom.xml
+    dest: /home/roboshop/{{COMPONENT}}
+
 - name: compile and build package
   shell:
     chdir: /home/roboshop/{{COMPONENT}}
