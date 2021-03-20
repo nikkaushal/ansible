@@ -16,11 +16,11 @@
     ARTIFACT_PATH: "/home/roboshop/{{COMPONENT}}"
     BUSER: "roboshop"
 
-- name: compile and build package
-  shell:
-    chdir: /home/roboshop/{{COMPONENT}}
-    cmd: mvn clean package
-  become_user: roboshop
+#- name: compile and build package
+#  shell:
+#    chdir: /home/roboshop/{{COMPONENT}}
+#    cmd: mvn clean package
+#  become_user: roboshop
 
 - name: copy {{COMPONENT}} jar file
   ansible.builtin.copy:
