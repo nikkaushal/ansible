@@ -19,7 +19,7 @@
 - name: compile and build package
   shell:
     chdir: /home/roboshop/{{COMPONENT}}
-    cmd: mvn clean package
+    cmd: mvn clean package -e
   become_user: roboshop
 
 - name: copy {{COMPONENT}} jar file
